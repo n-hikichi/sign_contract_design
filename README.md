@@ -13,11 +13,16 @@
 
 | ドキュメント | 内容 |
 |-------------|------|
-| [ChangeLog](./ChangeLog.md) | プロジェクトの変更履歴・技術情報 |
 | [FILES.md](./FILES.md) | ファイル構成の説明 |
 | [UI_MODERNIZATION_KNOWHOW.md](./UI_MODERNIZATION_KNOWHOW.md) | UI最新化のノウハウ・ガイド |
 
-> **注意**: ChangeLogの情報は現在整理中です。
+## ビルド・実行方法
+
+```bash
+cd edoc_cli
+npm install    # 依存関係のインストール
+npm start      # 開発サーバー起動（http://localhost:3000）
+```
 
 ## 備考
 

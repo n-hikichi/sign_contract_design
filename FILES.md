@@ -2,7 +2,7 @@
 
 このドキュメントでは、プロジェクトのディレクトリ構造とファイルの役割を説明します。
 
-ChangeLog.md とREADME.md は、デザイン関係の repo. の追加を開始した段階で、追加している。
+README.md は、デザイン関係の repo. の追加を開始した段階で、追加している。
 
 ## ルートディレクトリ
 
@@ -10,7 +10,6 @@ ChangeLog.md とREADME.md は、デザイン関係の repo. の追加を開始�
 sign_contract_design/
 ├── .dockerignore          # Dockerビルド時の除外ファイル指定
 ├── .gitignore             # Git管理対象外ファイルの指定
-├── ChangeLog.md           # プロジェクトの変更履歴
 ├── Dockerfile             # Dockerコンテナのビルド設定
 ├── edoc-cli-task-def.json # AWS ECSタスク定義ファイル
 ├── FILES.md               # 本ファイル（プロジェクト構造の説明）
@@ -226,6 +225,3 @@ npm test             # テスト実行
 - Modern UIコンポーネント（65+ファイル）の追加
 - 生成AI機能ページのModern UI対応
 
----
-
-> **Note**: 詳細な実装内容や変更履歴は [ChangeLog.md](./ChangeLog.md) を参照してください。
