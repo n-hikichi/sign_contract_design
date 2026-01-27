@@ -16,6 +16,7 @@ sign_contract_design/
 ├── FILES.md               # 本ファイル（プロジェクト構造の説明）
 ├── README.md              # プロジェクト概要
 ├── README-org.md          # オリジナルのREADME（参考用）
+├── UI_MODERNIZATION_KNOWHOW.md  # UI最新化ノウハウ・ガイド
 └── edoc_cli/              # Reactアプリケーション本体
 ```
 

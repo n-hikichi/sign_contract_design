@@ -11,7 +11,11 @@
 
 ## ドキュメント
 
-主要な変更履歴や技術情報は [ChangeLog](./ChangeLog.md) に記載されています。
+| ドキュメント | 内容 |
+|-------------|------|
+| [ChangeLog](./ChangeLog.md) | プロジェクトの変更履歴・技術情報 |
+| [FILES.md](./FILES.md) | ファイル構成の説明 |
+| [UI_MODERNIZATION_KNOWHOW.md](./UI_MODERNIZATION_KNOWHOW.md) | UI最新化のノウハウ・ガイド |
 
 > **注意**: ChangeLogの情報は現在整理中です。
 
