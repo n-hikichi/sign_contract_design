@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>承認依頼</title>
+</head>
+<body style="margin:0; padding:0; font-family:Arial, sans-serif;">
+  <div style="display:flex; flex-direction:column; width:100%; padding-top:5px; padding-bottom:5px;">
+    <div style="background-color:#eeeeee; margin:0 auto; min-height:500px; justify-content:center; padding:20px; width:600px; border:5px solid #0D47A1; box-sizing: border-box;">
+      <div style="background-color:white; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding-left:20px; padding-right:20px; margin-bottom:20px; box-sizing: border-box;">
+        <div style="width:100%; margin-top:40px; margin-bottom:60px;">
+          <div style="background-color:#0D47A1; padding:8px; border-radius:4px; color:white; font-weight:bold; text-align:center; font-size:1.5em;">
+            ブロックチェーン電子契約
+          </div>
+        </div>
+        <div style="font-weight:bold; font-size:1.5em;">
+          全ての関係者による承認が完了しました。
+        </div>
+        <div style="font-weight:bold; font-size:1.2em; margin-bottom:30px; color:#0D47A1;">
+          {{agreement_title}}
+        </div>
+        <div style="display:flex; justify-content:center; width:100%; margin-bottom:5px;">
+          <a href="{{magic_link}}" target="_blank" style="margin:10px; border-radius:20px; padding:12px 24px; background-color:#1976d2; color:white; text-decoration:none; font-size:16px;">
+            閲覧権限を取得する
+          </a>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:30px;">
+          閲覧期限：{{expiredDate}}
+        </div>
+        <div style="width:100%; display:flex; flex-direction:column; border-top:3px solid lightgrey; box-sizing: border-box;">
+          <div style="padding-top:30px; padding-bottom:5px;">
+            本書は、以下の関係者間による契約書です。
+          </div>
+          <div style="padding-bottom:30px; padding-left:8px;">
+            ・{{senderName}}<br />
+            ・{{receiverName}}
+          </div>
+          <div style="padding-bottom:30px;">
+            上記の「閲覧権限を取得する」をクリックし、契約書のアクセスをリクエストしてください。
+          </div>
+        </div>
+      </div>
+      <div style="width:100%; display:flex; flex-direction:column; margin-bottom:60px;">
+        <div style="padding-bottom:10px;">
+          本メールは送信専用です。ご返答いただいてもお答えする事は出来ません。
+        </div>
+        <div>
+          リンクの閲覧期限が切れている場合は本書の担当者へご連絡ください。
+        </div>
+      </div>
+      <div style="font-size:0.7em; padding-top:2px; padding-bottom:2px; text-align:right; width:100%;">
+        Copyright © 2025, MICROS SOFTWARE, Inc. All Rights Reserved.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

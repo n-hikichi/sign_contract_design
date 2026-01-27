@@ -1,0 +1,47 @@
+{
+    "family": "edoc-cli-task-def",
+    "containerDefinitions": [
+        {
+            "name": "edoc-cli-webapp",
+            "image": "825631150679.dkr.ecr.ap-northeast-1.amazonaws.com/edoc_cli:latest",
+            "cpu": 0,
+            "memoryReservation": 128,
+            "portMappings": [
+                {
+                    "name": "edoc-cli-webapp-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/edoc-cli-task-def",
+                    "awslogs-region": "ap-northeast-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "executionRoleArn": "arn:aws:iam::825631150679:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "runtimePlatform": {
+        "operatingSystemFamily": "LINUX"
+    },
+    "tags": [
+        {
+            "key": "test",
+            "value": "1"
+        }
+    ]
+}
