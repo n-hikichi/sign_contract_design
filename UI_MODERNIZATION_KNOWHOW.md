@@ -341,11 +341,7 @@ Modern + [元のコンポーネント名]
 
 ```
 ref/
-├── ChangeLog              # プロンプト例多数
-├── ReadMe                 # 概要
-├── step-dmdn.txt          # 作業手順
-└── prompt-utest/          # 単体テスト自動化プロンプト
-    └── README.md          # 詳細ガイド
+├── ChangeLog              # プロンプト例多数(生のprompt)
 ```
 
 ---
