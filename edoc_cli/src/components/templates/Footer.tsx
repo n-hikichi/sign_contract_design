@@ -1,5 +1,6 @@
 import { Link, Typography } from "@mui/material";
 import React from 'react';
+import ModernFooter from './ModernFooter';
 
 /**
  * 
@@ -49,4 +50,7 @@ const Footer: React.FC = () => {
     )
 };
 
-export default Footer;
+// モダナイズ版フッターを使用
+// 旧版に戻す場合は下記を `export default Footer;` に変更
+export default ModernFooter;
+// export default Footer;
