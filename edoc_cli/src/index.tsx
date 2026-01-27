@@ -1,10 +1,9 @@
-import { Authenticator, useAuthenticator } from '@aws-amplify/ui-react';
+import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import "amazon-cognito-passwordless-auth/passwordless.css";
 import { Amplify } from 'aws-amplify';
 import { I18n } from '@aws-amplify/core';
 import { ThemeProvider, defaultTheme } from '@aws-amplify/ui-react';
-import { signIn, signOut, getCurrentUser } from '@aws-amplify/auth';
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -16,13 +15,24 @@ import awsconfig from './aws-exports';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { store } from './store/store';
-import { AppBar, Box, Button, Link, Toolbar, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from './styles/theme';
+import { TextSizeProvider } from './contexts/TextSizeContext';
 // import backgloundImage from './backgloundImage.png';
 
-if (process.env.NODE_ENV === 'development') {
-    // const { worker } = require('./mocks/browser')
-    // worker.start()
-};
+// MSW起動用の非同期関数
+async function enableMocking(): Promise<void> {
+    if (process.env.REACT_APP_SKIP_AUTH !== 'true') {
+        return;
+    }
+    const { worker } = require('./mocks/browser');
+    await worker.start({
+        onUnhandledRequest: 'bypass', // モック未定義のリクエストはそのまま通す
+    });
+    console.log('[MSW] Mock Service Worker started for auth-skip mode');
+}
 
 // Amplify UIの日本語化
 I18n.putVocabulariesForLanguage('ja', {
@@ -110,11 +120,18 @@ const RootComponent: React.FC = () => {
     }
 
     /**
-     * 
+     *
      * 正規ユーザー向けアプリケーション
-     *  
+     *
      */
     Amplify.configure(awsconfig.Auth);
+
+    // 認証スキップモード（開発用）
+    // .env に REACT_APP_SKIP_AUTH=true を設定すると認証をスキップ
+    if (process.env.REACT_APP_SKIP_AUTH === 'true') {
+        return <App />;
+    }
+
     return (
         <ThemeProvider
             theme={{
@@ -244,14 +261,22 @@ const RootComponent: React.FC = () => {
     );
 };
 
-const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement
-);
-root.render(
-    <Provider store={store}>
-        <BrowserRouter>
-            <RootComponent />
-        </BrowserRouter>
-    </Provider>
-);
-reportWebVitals();
+// MSWの起動を待ってからアプリをレンダリング
+enableMocking().then(() => {
+    const root = ReactDOM.createRoot(
+        document.getElementById('root') as HTMLElement
+    );
+    root.render(
+        <Provider store={store}>
+            <MuiThemeProvider theme={theme}>
+                <CssBaseline />
+                <TextSizeProvider>
+                    <BrowserRouter>
+                        <RootComponent />
+                    </BrowserRouter>
+                </TextSizeProvider>
+            </MuiThemeProvider>
+        </Provider>
+    );
+    reportWebVitals();
+});

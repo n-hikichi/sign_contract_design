@@ -4,8 +4,7 @@ import HoverButton from '../../elements/EdocButton';
 import { readOnlyTextFieldStyle } from '../../../styles/fontStyles';
 import { approveStartDialogStyle } from '../../../styles/styles';
 import appMessage from '../../../utils/appMessage';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { f } from 'msw/lib/glossary-de6278a9';
+import { useNavigate } from 'react-router-dom';
 
 interface ErrorDialogProps {
     open: boolean;
