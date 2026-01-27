@@ -228,7 +228,7 @@ interface CustomPulldownMenuProps_ extends CommonSelectProps_ {
     }[];
 }
 
-export const CustomPulldownMenu_: React.FC<CustomPulldownMenuProps_> = ({
+export const CustomPulldownMenuAlt: React.FC<CustomPulldownMenuProps_> = ({
     label,
     value,
     onChange,
@@ -284,7 +284,7 @@ interface CustomPulldownMenuProps_SignTemplate extends CommonSelectProps_ {
     }[];
 }
 
-export const CustomPulldownMenu_SignTemplate: React.FC<CustomPulldownMenuProps_SignTemplate> = ({
+export const CustomPulldownMenuSignTemplate: React.FC<CustomPulldownMenuProps_SignTemplate> = ({
     label,
     value,
     onChange,
@@ -346,7 +346,7 @@ interface CustomPulldownMenuProps_UserList extends CommonSelectProps_UserList {
     }[];
 }
 
-export const CustomPulldownMenu_UserList: React.FC<CustomPulldownMenuProps_UserList> = ({
+export const CustomPulldownMenuUserList: React.FC<CustomPulldownMenuProps_UserList> = ({
     label,
     value,
     onChange,
@@ -388,7 +388,7 @@ interface CustomPulldownMenuForPrefectureProps {
     helperText?: string; // エラーメッセージを受け取る
 }
 
-export const CustomPulldownMenu_ForPrefecture: React.FC<CustomPulldownMenuForPrefectureProps> = ({ value, onChange, error, helperText }) => {
+export const CustomPulldownMenuForPrefecture: React.FC<CustomPulldownMenuForPrefectureProps> = ({ value, onChange, error, helperText }) => {
     return (
         <FormControl variant="standard" sx={{ width: '100%' }}>
             <InputLabel id="prefecture-label">都道府県</InputLabel>
@@ -414,7 +414,7 @@ export const CustomPulldownMenu_ForPrefecture: React.FC<CustomPulldownMenuForPre
     );
 };
 
-export const CustomPulldownMenu_ForLocation: React.FC<CustomPulldownMenuForPrefectureProps> = ({ value, onChange }) => {
+export const CustomPulldownMenuForLocation: React.FC<CustomPulldownMenuForPrefectureProps> = ({ value, onChange }) => {
     return (
         <FormControl variant="standard" sx={{ width: '100%' }}>
             <InputLabel id="prefecture-label">所属拠点</InputLabel>
@@ -436,3 +436,8 @@ export const CustomPulldownMenu_ForLocation: React.FC<CustomPulldownMenuForPrefe
 };
 
 export default CustomPulldownMenu;
+
+// 互換性alias（旧名称）
+export const CustomPulldownMenu_ForPrefecture = CustomPulldownMenuForPrefecture;
+export const CustomPulldownMenu_SignTemplate = CustomPulldownMenuSignTemplate;
+export const CustomPulldownMenu_ = CustomPulldownMenuAlt;

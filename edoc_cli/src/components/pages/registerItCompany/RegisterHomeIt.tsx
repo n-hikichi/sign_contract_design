@@ -20,9 +20,7 @@ import apiExecutor from "../../../utils/apiExecutor";
 import apiStatus from "../../../utils/apiStatus";
 import converter from "../../../utils/converter";
 import CustomPulldownMenu, { contractType, CustomPulldownMenu_ForPrefecture, CustomPulldownMenu_SignTemplate, effectiveDate } from '../../elements/CustomPulldownMenu';
-import Footer from '../../templates/Footer';
-import Header from '../../templates/Header';
-import SideMenuForGenerativeAi from '../../templates/SideMenuForGenerativeAi';
+import ModernPageLayoutForGenerativeAi from '../../templates/ModernPageLayoutForGenerativeAi';
 import NowLoading from '../../templates/NowLoading';
 import ApiProcessingDialog from "../common/ApiProcessingDialog";
 import ErrorDialog from '../common/ErrorDialog';
@@ -752,14 +750,9 @@ const RegisterHomeIt: React.FC<{}> = () => {
         return <NowLoading />;
     } else {
         return (
-            <>
-                <Box bgcolor='grey.200' sx={{ height: 'auto', minHeight: 'calc(100vh - 35px)', paddingTop: '80px', paddingBottom: '5px' }}>
-                    <Header />
-                    <Box sx={{ display: 'flex' }}>
-                        <CssBaseline />
-                        <SideMenuForGenerativeAi />
-                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-                            <Box sx={{ marginLeft: '5%', marginRight: '5%' }}>
+            <ModernPageLayoutForGenerativeAi breadcrumbs={[{ label: '生成AI活用機能' }, { label: 'AI OCR機能' }]}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+                    <Box sx={{ marginLeft: '2%', marginRight: '2%' }}>
                                 {!isPreviewVisible && (
                                     <>
                                         {/* <Typography sx={{ backgroundColor: '#0D47A1', padding: '8px', borderRadius: '4px', color: 'white', fontWeight: 'bold', textAlign: 'center', fontSize: '1.5em', marginBottom: '20px' }}>
@@ -890,14 +883,11 @@ const RegisterHomeIt: React.FC<{}> = () => {
                                         </>
                                     )
                                 }
-                            </Box>
-                        </Box>
-                    </Box >
-                </Box >
-                <Footer />
+                    </Box>
+                </Box>
                 <ApiProcessingDialog open={executeApiDialog} handleClose={handleExecuteApiDialogClose} />
                 <ErrorDialog open={executeFailedApiDialog} handleClose={handleExecuteFailedApiDialogClose} errorCode={errorCode} errorProcess={errorProcess} />
-            </>
+            </ModernPageLayoutForGenerativeAi>
         );
     };
 }

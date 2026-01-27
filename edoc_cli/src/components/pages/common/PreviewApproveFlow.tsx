@@ -161,7 +161,7 @@ export const PreviewBeforeStartApproveFlowNotifier: React.FC<PreviewNotifierList
                 <Box sx={{ bgcolor: 'lightblue', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'end', marginBottom: '10px' }}>
                     <Typography variant="h5" sx={{ fontWeight: 'bold', paddingTop: '10px', paddingBottom: '10px' }}>本契約の通知先</Typography>
                 </Box>
-                {(internalNotifierLength == 0 && customerNotifierLength == 0) ? (
+                {(internalNotifierLength === 0 && customerNotifierLength === 0) ? (
                     <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'end' }}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', paddingTop: '20px', paddingBottom: '10px' }}>
                             登録なし
@@ -303,7 +303,7 @@ export const PreviewBeforeStartApproveFlowNotifierWithTab: React.FC<PreviewNotif
 
     return (
         <Box sx={{ width: '90%', marginLeft: '5%', marginRight: '5%' }}>
-            {(internalNotifierLength == 0 && customerNotifierLength == 0) ? (
+            {(internalNotifierLength === 0 && customerNotifierLength === 0) ? (
                 <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'end' }}>
                     <Typography variant="h6" sx={{ fontWeight: 'bold', paddingTop: '20px', paddingBottom: '10px' }}>
                         登録なし
@@ -455,7 +455,7 @@ export const PreviewApproveFlowForRegister: React.FC<PreviewApproveFlowForRegist
     );
 }
 
-export const PreviewApproveFlow_forNotifier: React.FC<PreviewNotifierListProps> = ({ internalNotifier, customerNotifier }) => {
+export const PreviewApproveFlowForNotifier: React.FC<PreviewNotifierListProps> = ({ internalNotifier, customerNotifier }) => {
 
     const internalNotifierLength = internalNotifier.length;
     const customerNotifierLength = customerNotifier.length;
@@ -466,7 +466,7 @@ export const PreviewApproveFlow_forNotifier: React.FC<PreviewNotifierListProps> 
                 <Box sx={{ bgcolor: 'lightblue', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'end', marginBottom: '10px' }}>
                     <Typography variant="h5" sx={{ fontWeight: 'bold', paddingTop: '10px', paddingBottom: '10px' }}>本契約の通知先</Typography>
                 </Box>
-                {(internalNotifierLength == 0 && customerNotifierLength == 0) ? (
+                {(internalNotifierLength === 0 && customerNotifierLength === 0) ? (
                     <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'end' }}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', paddingTop: '20px', paddingBottom: '10px' }}>
                             登録なし
@@ -534,7 +534,7 @@ export const ApproveFlowNotifier: React.FC<PreviewNotifierListProps> = ({ intern
 
     return (
         <Box sx={{ width: '100%' }}>
-            {(internalNotifierLength == 0 && customerNotifierLength == 0) ? (
+            {(internalNotifierLength === 0 && customerNotifierLength === 0) ? (
                 <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'end' }}>
                     <Typography variant="h6" sx={{ fontWeight: 'bold', paddingTop: '20px', paddingBottom: '10px' }}>
                         登録なし
@@ -594,7 +594,7 @@ export const PreviewApproveFlowNotifier: React.FC<PreviewNotifierListProps> = ({
     return (
         <Box bgcolor='white' sx={{ flexGrow: 1, padding: '20px', marginBottom: '20px', border: '1px solid lightgray' }}>
             <Box>
-                {(internalNotifierLength == 0 && customerNotifierLength == 0) ? (
+                {(internalNotifierLength === 0 && customerNotifierLength === 0) ? (
                     <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'end' }}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', paddingTop: '20px', paddingBottom: '10px' }}>
                             登録なし
@@ -653,3 +653,6 @@ export const PreviewApproveFlowNotifier: React.FC<PreviewNotifierListProps> = ({
 }
 
 export default PreviewApproveFlow;
+
+// 互換性alias（旧名称）
+export const PreviewApproveFlow_forNotifier = PreviewApproveFlowForNotifier;

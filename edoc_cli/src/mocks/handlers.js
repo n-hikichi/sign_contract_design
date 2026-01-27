@@ -20,11 +20,11 @@ import { customerUserList } from './files/customerUserInfo/customerUserList';
 // ゲストAPI
 import { getGuestAgreement } from './guest/agreement';
 // 承認フローAPI（自社）
-import { internal_workflow } from './files/workflows/internal_workflow';
+// import { internal_workflow } from './files/workflows/internal_workflow';
 // 承認フローAPI（相手方）
-import { agreement_workflow_customer, agreement_workflow_customer_with_internalFlow } from './files/workflows/customer_workflow';
+// import { agreement_workflow_customer, agreement_workflow_customer_with_internalFlow } from './files/workflows/customer_workflow';
 // 承認フローAPI（自社）
-import { concluded_agreement } from './files/agreements/concluded_agreement';
+// import { concluded_agreement } from './files/agreements/concluded_agreement';
 import { internalSealImage } from './files/internalUserInfo/internalSealImage';
 import { customerSealImage } from './files/customerUserInfo/customerSealImage';
 import { representativeSealImage } from './development/representativeSealImage';
@@ -671,9 +671,34 @@ export const handlers = [
 
     // ----- 承認フロー情報（workflows） -----
     /***
-     * 
+     *
+     * 承認フロー一覧を取得する（approval_flow_list）
+     *
+     */
+    rest.get(apiURL.APPROVALFLOWLIST_URL, (req, res, ctx) => {
+        const company_id = req.url.searchParams.get('company_id');
+        return res(
+            ctx.status(200),
+            ctx.json([
+                {
+                    "company_id": company_id || "805264ba-91f0-c1a8-1c26-88b237b2e7aa",
+                    "workflow_id": "922d3ab8-8d8c-4035-e637-6d079eee7fac",
+                    "workflow_name": "自社メイン承認フロー",
+                    "workflow_type": "internal",
+                },
+                {
+                    "company_id": company_id || "805264ba-91f0-c1a8-1c26-88b237b2e7aa",
+                    "workflow_id": "a1b2c3d4-5678-90ab-cdef-1234567890ab",
+                    "workflow_name": "相手方承認フロー",
+                    "workflow_type": "customer",
+                },
+            ])
+        );
+    }),
+    /***
+     *
      * 承認フロー情報（workflows）を取得する
-     * 
+     *
      */
     rest.get(apiURL.APPROVALFLOW_URL + '?company_id=', (req, res, ctx) => {
         // const { company_id } = req.params

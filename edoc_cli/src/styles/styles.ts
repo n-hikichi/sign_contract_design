@@ -4,7 +4,7 @@ import zIndex from "@mui/material/styles/zIndex";
 
 // 登録画面、更新画面、復元画面のモーダルウィンドウの設定
 export const basePageStyle = {
-    bgcolor: 'grey.200',
+    bgcolor: 'transparent',
     height: 'auto',
     minHeight: 'calc(100vh - 35px)',
     paddingTop: '80px',

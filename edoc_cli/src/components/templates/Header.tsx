@@ -7,6 +7,7 @@ import awsconfig from '../../aws-exports';
 import React, { useEffect, useState } from 'react';
 import logo from './logo.png';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ModernHeader from './ModernHeader';
 
 // CognitoのクライアントID
 const clientId = awsconfig.Auth.aws_user_pools_web_client_id;
@@ -260,4 +261,7 @@ const Header: React.FC = () => {
     )
 };
 
-export default Header;
+// モダナイズ版ヘッダーを使用
+// 旧版に戻す場合は下記を `export default Header;` に変更
+export default ModernHeader;
+// export default Header;

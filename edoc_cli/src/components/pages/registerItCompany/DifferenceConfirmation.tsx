@@ -20,9 +20,7 @@ import apiExecutor from "../../../utils/apiExecutor";
 import apiStatus from "../../../utils/apiStatus";
 import converter from "../../../utils/converter";
 import CustomPulldownMenu, { contractType, CustomPulldownMenu_ForPrefecture, CustomPulldownMenu_SignTemplate, effectiveDate } from '../../elements/CustomPulldownMenu';
-import Footer from '../../templates/Footer';
-import Header from '../../templates/Header';
-import SideMenuForGenerativeAi from '../../templates/SideMenuForGenerativeAi';
+import ModernPageLayoutForGenerativeAi from '../../templates/ModernPageLayoutForGenerativeAi';
 import NowLoading from '../../templates/NowLoading';
 import ApiProcessingDialog from "../common/ApiProcessingDialog";
 import ErrorDialog from '../common/ErrorDialog';
@@ -508,14 +506,9 @@ const DifferenceConfirmation: React.FC<{}> = () => {
         return <NowLoading />;
     } else {
         return (
-            <>
-                <Box bgcolor='grey.200' sx={{ height: 'auto', minHeight: 'calc(100vh - 35px)', paddingTop: '80px', paddingBottom: '5px' }}>
-                    <Header />
-                    <Box sx={{ display: 'flex' }}>
-                        <CssBaseline />
-                        <SideMenuForGenerativeAi />
-                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-                            <Box sx={{ marginLeft: '5%', marginRight: '5%' }}>
+            <ModernPageLayoutForGenerativeAi breadcrumbs={[{ label: '生成AI活用機能' }, { label: '差分確認' }]}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+                    <Box sx={{ marginLeft: '2%', marginRight: '2%' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', justifyContent: 'center', alignItems: 'center', paddingLeft: '1%', paddingRight: '1%' }}>
                                     <Paper elevation={3} style={{
                                         position: "fixed", bottom: 60, right: 20, width: isSideMenuOpen ? '75%' : '95%', height: '85%', padding: "10px",
@@ -660,14 +653,11 @@ const DifferenceConfirmation: React.FC<{}> = () => {
                                         )} */}
                                     </Paper>
                                 </Box>
-                            </Box>
-                        </Box>
-                    </Box >
-                </Box >
-                <Footer />
+                    </Box>
+                </Box>
                 <ApiProcessingDialog open={executeApiDialog} handleClose={handleExecuteApiDialogClose} />
                 <ErrorDialog open={executeFailedApiDialog} handleClose={handleExecuteFailedApiDialogClose} errorCode={errorCode} errorProcess={errorProcess} />
-            </>
+            </ModernPageLayoutForGenerativeAi>
         );
     };
 }

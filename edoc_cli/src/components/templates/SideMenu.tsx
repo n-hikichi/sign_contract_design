@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import api from "../../utils/apiAccessor";
 import { getUserData, getUserDataForDebug } from '../../auth/login';
+import ModernSideMenu from './ModernSideMenu';
 
 // ドロワー幅の定義
 const drawerWidth = 400;
@@ -451,4 +452,7 @@ const SideMenu: any = () => {
     );
 }
 
-export default SideMenu;
+// モダナイズ版サイドメニューを使用
+// 旧版に戻す場合は下記を `export default SideMenu;` に変更
+export default ModernSideMenu;
+// export default SideMenu;

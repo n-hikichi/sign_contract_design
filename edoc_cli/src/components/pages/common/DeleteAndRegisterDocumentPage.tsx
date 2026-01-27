@@ -22,7 +22,7 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { useDropzone } from 'react-dropzone';
 import { Controller, useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
-import CustomPulldownMenu, { contractType, CustomPulldownMenu_ForPrefecture, CustomPulldownMenu_SignTemplate, effectiveDate, representativeSealSelectType } from '../../elements/CustomPulldownMenu';
+import CustomPulldownMenu, { contractType, CustomPulldownMenuForPrefecture, CustomPulldownMenuSignTemplate, effectiveDate, representativeSealSelectType } from '../../elements/CustomPulldownMenu';
 import { readOnlyTextFieldPaddingLessStyle } from '../../../styles/fontStyles';
 import { baseTextFieldStyle, parentTextFieldStyle } from '../../../styles/styles';
 import api from '../../../utils/apiAccessor';
@@ -33,7 +33,7 @@ import validationRules from '../../../utils/validationRules';
 import Footer from '../../templates/Footer';
 import Header from '../../templates/Header';
 import NowLoading from '../../templates/NowLoading';
-import { PreviewApproveFlowForRegister, PreviewApproveFlow_forNotifier } from './PreviewApproveFlow';
+import { PreviewApproveFlowForRegister, PreviewApproveFlowForNotifier } from './PreviewApproveFlow';
 import PreviewRegisterBasicInfo from './PreviewRegisterBasicInfo';
 import ErrorDialog from './ErrorDialog';
 import ApiProcessingDialog from "./ApiProcessingDialog";
@@ -504,6 +504,7 @@ const DeleteAndRegisterDocumentPage: React.FC<{}> = () => {
         };
 
         fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     /***
@@ -545,7 +546,9 @@ const DeleteAndRegisterDocumentPage: React.FC<{}> = () => {
 
     // ドロップされたファイルを処理します。ここでは最初のファイルだけを扱います。
     const onDropPdfFile = useCallback((acceptedFiles: File[]) => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         handleFileUpload(acceptedFiles);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const { getRootProps: getRootPropsPdfFile, getInputProps: getInputPropsPdfFile, isDragActive: isDragActivePdfFile } = useDropzone({ onDrop: onDropPdfFile });
 
@@ -1884,7 +1887,7 @@ const DeleteAndRegisterDocumentPage: React.FC<{}> = () => {
                                                                         />
                                                                     </Box>
                                                                     <Box sx={{ display: 'flex', width: '50%', marginLeft: '10px' }}>
-                                                                        <CustomPulldownMenu_SignTemplate
+                                                                        <CustomPulldownMenuSignTemplate
                                                                             label="署名テンプレート名"
                                                                             value={selectedValueSignTemplateId}
                                                                             onChange={handleSelectChangeSignTemplate}
@@ -2105,7 +2108,7 @@ const DeleteAndRegisterDocumentPage: React.FC<{}> = () => {
                                                                             name="own_company.state"
                                                                             control={control}
                                                                             render={({ field }) => (
-                                                                                <CustomPulldownMenu_ForPrefecture
+                                                                                <CustomPulldownMenuForPrefecture
                                                                                     value={field.value}
                                                                                     onChange={field.onChange as (event: SelectChangeEvent<string>) => void}
                                                                                 />
@@ -2257,7 +2260,7 @@ const DeleteAndRegisterDocumentPage: React.FC<{}> = () => {
                                                                             name="customer_company.state"
                                                                             control={control}
                                                                             render={({ field }) => (
-                                                                                <CustomPulldownMenu_ForPrefecture
+                                                                                <CustomPulldownMenuForPrefecture
                                                                                     value={field.value}
                                                                                     onChange={field.onChange as (event: SelectChangeEvent<string>) => void}
                                                                                 />
@@ -3771,7 +3774,7 @@ const DeleteAndRegisterDocumentPage: React.FC<{}> = () => {
                                 <Box sx={{ marginTop: '20px' }}>
                                     <PreviewRegisterBasicInfo basicInfo={getValues()} file={file} templateId={selectedValueSignTemplateId} templateName={selectedValueSignTemplateName} />
                                     <PreviewApproveFlowForRegister internalApproveFlow={previewInternal} customerApproveFlow={previewCustomer} internalSeal={getValues('internal_seal')} customerSeal={getValues('customer_seal')} />
-                                    <PreviewApproveFlow_forNotifier internalNotifier={getValues('approval_flow.internal_notifier')} customerNotifier={getValues('approval_flow.customer_notifier')} />
+                                    <PreviewApproveFlowForNotifier internalNotifier={getValues('approval_flow.internal_notifier')} customerNotifier={getValues('approval_flow.customer_notifier')} />
                                     <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                                         <Button variant="contained" onClick={handleSubmit(onPreview)} sx={{ mt: 1, mr: 1, width: '9em', '&:hover': { backgroundColor: 'darkblue' } }} >
                                             <Typography>戻る</Typography>

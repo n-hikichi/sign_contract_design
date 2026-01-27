@@ -93,6 +93,7 @@ const PreviewBasicInfo: React.FC<{}> = (props: any) => {
         };
 
         fetchGetAgreementFile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

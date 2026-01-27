@@ -45,7 +45,7 @@ const ApproverInfo: React.FC<ApproverInfoForUserProps> = ({ isChecked, handleChe
                 <Grid item md={12}>
                     <Box sx={{ flexGrow: 0, width: '90%', marginRight: '5%', marginLeft: '5%' }}>
                         <Typography sx={{ backgroundColor: 'lightblue', padding: '8px', borderRadius: '4px', fontWeight: 'bold', textAlign: 'center', marginBottom: '40px', fontSize: '1.5rem', width: '100%' }}>
-                            {isPresentApprover === true && '承認者情報' || '現在の承認者'}
+                            {isPresentApprover === true ? '承認者情報' : '現在の承認者'}
                         </Typography>
                     </Box>
                 </Grid>
