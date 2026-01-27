@@ -341,7 +341,7 @@ Modern + [元のコンポーネント名]
 
 ```
 ref/
-├── ChangeLog              # プロンプト例多数(生のprompt)
+└── ChangeLog              # プロンプト例多数(生のprompt)
 ```
 
 ---
